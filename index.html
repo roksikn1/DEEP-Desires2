@@ -1,0 +1,321 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>DEEP Desires</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@500;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one centered column of official link cards over a fixed, animated night-city scene:
+   drifting aurora ribbons, rising light motes, shooting stars, blinking skyline, moving perspective grid.
+   Text stays readable: solid neon-tinted type with a tight glow over a dark scrim. Single dark look by design. */
+:root {
+  --bg: #05030e;
+  --violet: #c9a0ff;
+  --violet-soft: #b98cf5;
+  --pink: #f08bdc;
+  --cyan: #8fdcf5;
+  --ink: #ece3fb;
+  --ink-dim: #bba9d9;
+  --card: rgba(11, 6, 26, 0.9);
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 52px 40px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ---------- scene ---------- */
+.scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  background: linear-gradient(180deg, #04020c 0%, #090828 35%, #150a3a 58%, #05030e 58.1%); }
+.scene canvas { position: absolute; display: block; }
+#aurora { left: -10%; top: -5%; width: 120%; height: 70%; filter: blur(34px) saturate(1.2); opacity: 0.9; }
+#motes { inset: 0; width: 100%; height: 100%; }
+#city { left: 0; width: 100%; bottom: 36%; height: min(34vh, 300px); }
+.haze { position: absolute; left: 0; right: 0; bottom: 36%; height: 26%;
+  background: linear-gradient(180deg, transparent, rgba(240, 139, 220, 0.16)); animation: breathe 6s ease-in-out infinite alternate; }
+.horizon { position: absolute; left: 0; right: 0; bottom: 36%; height: 2px; z-index: 2;
+  background: linear-gradient(90deg, transparent, rgba(240, 139, 220, 0.9) 25%, rgba(143, 220, 245, 0.95) 50%, rgba(240, 139, 220, 0.9) 75%, transparent);
+  box-shadow: 0 0 14px 2px rgba(240, 139, 220, 0.6), 0 0 44px 8px rgba(120, 80, 255, 0.4); }
+.floor { position: absolute; left: 0; right: 0; bottom: 0; height: 36%; overflow: hidden;
+  background: linear-gradient(180deg, #220e48 0%, #0e0724 40%, #05030e 100%); }
+.floor::before { content: ""; position: absolute; left: -70%; right: -70%; top: 0; bottom: -130%;
+  background-image:
+    linear-gradient(rgba(150, 120, 255, 0.55) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(150, 120, 255, 0.55) 1.5px, transparent 1.5px);
+  background-size: 64px 64px;
+  transform: perspective(320px) rotateX(62deg); transform-origin: 50% 0;
+  animation: grid 2.4s linear infinite; }
+.floor::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(240, 139, 220, 0.3), transparent 22%, transparent 55%, #05030e 100%); }
+.vignette { position: absolute; inset: 0; z-index: 3;
+  background: radial-gradient(120% 90% at 50% 45%, transparent 50%, rgba(3, 1, 8, 0.8) 100%); }
+
+@keyframes grid { to { background-position: 0 64px; } }
+@keyframes breathe { to { opacity: 0.55; } }
+
+/* ---------- content ---------- */
+main { position: relative; z-index: 4; max-width: 540px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; text-align: center; isolation: isolate; }
+main::before { content: ""; position: absolute; z-index: -1; left: 50%; top: -40px; width: min(760px, 130vw); height: 560px; translate: -50% 0;
+  background: radial-gradient(closest-side, rgba(4, 2, 12, 0.82), rgba(4, 2, 12, 0.5) 60%, transparent); }
+.kicker { font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: 0.32em; text-indent: 0.32em;
+  color: var(--pink); text-transform: uppercase;
+  padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(240, 139, 220, 0.55);
+  background: rgba(20, 6, 34, 0.8);
+  text-shadow: 0 0 8px rgba(240, 139, 220, 0.55);
+  box-shadow: 0 0 12px rgba(240, 139, 220, 0.22); }
+h1 { margin: 22px 0 0; display: flex; flex-direction: column; align-items: center; line-height: 0.95; }
+h1 .big { font-family: var(--display); font-weight: 900; font-size: clamp(66px, 18vw, 110px); letter-spacing: 0.01em;
+  color: #d6b3ff;
+  text-shadow: 0 0 6px rgba(190, 130, 255, 0.85), 0 0 22px rgba(150, 80, 255, 0.55), 0 4px 0 #2a0f55, 0 8px 18px rgba(0, 0, 0, 0.7); }
+h1 .small { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 8.4vw, 44px); letter-spacing: 0.08em;
+  margin-top: 8px; color: #f4a6e4;
+  text-shadow: 0 0 6px rgba(240, 120, 215, 0.8), 0 0 18px rgba(220, 70, 190, 0.45), 0 3px 0 #3a0d3d, 0 6px 14px rgba(0, 0, 0, 0.7); }
+.rule { width: min(280px, 70%); height: 2px; margin: 22px 0 0;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--cyan), transparent); opacity: 0.85; }
+.lead { margin: 18px 0 0; max-width: 36ch; font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--ink);
+  text-wrap: balance; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); }
+.section-label { margin: 40px 0 16px; font-family: var(--mono); font-weight: 700; font-size: 12px;
+  letter-spacing: 0.3em; text-indent: 0.3em; color: var(--cyan); text-transform: uppercase;
+  display: flex; align-items: center; gap: 14px; width: 100%; justify-content: center;
+  text-shadow: 0 0 8px rgba(143, 220, 245, 0.5), 0 1px 8px #000; }
+.section-label::before, .section-label::after { content: ""; flex: 1; max-width: 70px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(143, 220, 245, 0.8)); }
+.section-label::after { rotate: 180deg; }
+
+.links { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 16px; }
+.card { --c: var(--violet); --cg: 185, 140, 245;
+  position: relative; display: flex; align-items: center; gap: 16px; text-align: left;
+  padding: 16px 16px 16px 18px; border-radius: 20px; text-decoration: none; color: var(--ink);
+  background: linear-gradient(135deg, rgba(var(--cg), 0.12), var(--card) 60%);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(var(--cg), 0.7);
+  box-shadow: 0 0 14px rgba(var(--cg), 0.28), inset 0 0 20px rgba(var(--cg), 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+.card:hover, .card:focus-visible { transform: translateY(-3px); border-color: rgba(var(--cg), 1);
+  box-shadow: 0 0 22px rgba(var(--cg), 0.55), inset 0 0 26px rgba(var(--cg), 0.14); }
+.card:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.card:active { transform: translateY(0); }
+.card.pink { --c: var(--pink); --cg: 240, 139, 220; }
+.card.cyan { --c: var(--cyan); --cg: 120, 205, 240; }
+.ico { flex: none; width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center;
+  background: rgba(var(--cg), 0.14); border: 1.5px solid rgba(var(--cg), 0.6); color: var(--c);
+  box-shadow: inset 0 0 12px rgba(var(--cg), 0.2); }
+.ico svg { width: 26px; height: 26px; filter: drop-shadow(0 0 4px rgba(var(--cg), 0.7)); }
+.txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.title { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.02em; color: var(--c);
+  text-shadow: 0 0 8px rgba(var(--cg), 0.55); }
+.sub { font-size: 13px; font-weight: 700; line-height: 1.35; color: var(--ink-dim); overflow-wrap: anywhere; }
+.go { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px 10px 14px; border-radius: 999px;
+  font-family: var(--mono); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #150728; background: var(--c);
+  box-shadow: 0 0 14px rgba(var(--cg), 0.5);
+  transition: box-shadow 0.2s ease, filter 0.2s ease; }
+.go svg { width: 16px; height: 16px; transition: translate 0.2s ease; }
+.card:hover .go, .card:focus-visible .go { box-shadow: 0 0 22px rgba(var(--cg), 0.9); filter: brightness(1.1); }
+.card:hover .go svg, .card:focus-visible .go svg { translate: 3px 0; }
+
+footer { margin-top: 40px; font-family: var(--mono); font-weight: 700; font-size: 11px; letter-spacing: 0.16em;
+  line-height: 1.7; color: var(--ink-dim); text-transform: uppercase; text-shadow: 0 1px 10px #000; }
+
+@media (max-width: 460px) {
+  body { padding-block: 40px 32px; }
+  .card { padding: 14px; gap: 12px; }
+  .ico { width: 46px; height: 46px; }
+  .ico svg { width: 22px; height: 22px; }
+  .go { padding: 10px; }
+  .go span { display: none; }
+  .title { font-size: 14px; }
+  .section-label { margin-top: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floor::before, .haze { animation: none; }
+  .card, .go svg { transition: none; }
+}
+</style>
+
+<div class="scene" aria-hidden="true">
+  <canvas id="aurora"></canvas>
+  <canvas id="motes"></canvas>
+  <div class="haze"></div>
+  <canvas id="city"></canvas>
+  <div class="horizon"></div>
+  <div class="floor"></div>
+  <div class="vignette"></div>
+</div>
+
+<main>
+  <span class="kicker">Официальный сайт клана</span>
+  <h1><span class="big">DEEP</span><span class="small">Desires</span></h1>
+  <div class="rule"></div>
+  <p class="lead">Официальные ресурсы клана DEEP Desires. Все актуальные ссылки собраны на одной странице.</p>
+
+  <h2 class="section-label">Официальные ресурсы</h2>
+  <ul class="links">
+    <li>
+      <a class="card" href="https://t.me/MTFBAR" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M21.5 3.5 2.8 10.7c-.8.3-.8 1.4 0 1.7l4.6 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 5c.2-.9-.6-1.8-1.4-1.5Z"/><path d="m7.4 14 10.6-7.4-8.2 9.4"/></svg></span>
+        <span class="txt"><span class="title">Telegram-канал</span><span class="sub">Официальный канал клана</span></span>
+        <span class="go"><span>Перейти</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <a class="card pink" href="https://t.me/KASPER__UC__BOT" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M6.5 4h11l4 5.2L12 21 2.5 9.2 6.5 4Z"/><path d="M2.5 9.2h19M9 9.2 12 21l3-11.8M9 9.2 7 4m8 5.2L17 4"/></svg></span>
+        <span class="txt"><span class="title">UC-SHOP</span><span class="sub">Пополнение UC через официального бота</span></span>
+        <span class="go"><span>Перейти</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <a class="card cyan" href="https://www.tiktok.com/@deep_desires0" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2 4.4 5 4.7"/></svg></span>
+        <span class="txt"><span class="title">TikTok</span><span class="sub">Официальный аккаунт @deep_desires0</span></span>
+        <span class="go"><span>Перейти</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>© 2026 Клан DEEP Desires<br>Все права защищены</footer>
+</main>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rng(seed) { return function () { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; }; }
+  function setup(c, scale) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5) * (scale || 1);
+    var w = c.clientWidth, h = c.clientHeight;
+    c.width = Math.max(1, Math.round(w * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var x = c.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { x: x, w: w, h: h };
+  }
+
+  var A, M, C, stars = [], motes = [], shoot = null, bld = [], wins = [];
+
+  function init() {
+    A = setup(document.getElementById('aurora'), 0.35);
+    M = setup(document.getElementById('motes'));
+    C = setup(document.getElementById('city'));
+    var r = rng(11), n = Math.round(M.w * M.h / 5200);
+    stars = [];
+    for (var i = 0; i < n; i++) stars.push({ x: r() * M.w, y: r() * M.h * 0.6, s: r() < 0.1 ? 1.8 : 1, p: r() * 6.28, f: 0.6 + r() * 1.8,
+      c: r() < 0.25 ? '255,170,235' : (r() < 0.3 ? '160,225,255' : '235,220,255') });
+    motes = [];
+    var m = Math.max(18, Math.round(M.w / 30));
+    for (i = 0; i < m; i++) motes.push({ x: r() * M.w, y: r() * M.h, v: 6 + r() * 20, rad: 1 + r() * 2.4, p: r() * 6.28, f: 0.4 + r(),
+      c: r() < 0.5 ? '240,139,220' : (r() < 0.5 ? '143,220,245' : '185,140,245') });
+    // skyline
+    bld = []; wins = [];
+    var r2 = rng(5), px = -10, h = C.h;
+    while (px < C.w) {
+      var bw = 20 + r2() * 34, bh = h * (0.14 + r2() * 0.62), tone = r2() < 0.5 ? 0 : 1;
+      bld.push({ x: px, w: bw, h: bh, t: tone, ant: r2() < 0.3 });
+      for (var wy = h - bh + 8; wy < h - 4; wy += 7)
+        for (var wx = px + 4; wx < px + bw - 4; wx += 6)
+          if (r2() < 0.22) wins.push({ x: wx, y: wy, p: r2() * 6.28, f: 0.2 + r2() * 1.2, c: r2() < 0.4 ? '255,120,225' : (r2() < 0.5 ? '140,210,255' : '225,190,255') });
+      px += bw + (r2() < 0.5 ? 0 : 2 + r2() * 6);
+    }
+  }
+
+  function drawAurora(t) {
+    var x = A.x, w = A.w, h = A.h;
+    x.clearRect(0, 0, w, h);
+    x.globalCompositeOperation = 'lighter';
+    var bands = [
+      { y: 0.34, a: 0.16, c: '150,80,255', s: 0.00032, k: 0.0042, o: 0 },
+      { y: 0.46, a: 0.14, c: '255,80,210', s: 0.00026, k: 0.0036, o: 2 },
+      { y: 0.58, a: 0.12, c: '70,200,245', s: 0.00036, k: 0.0050, o: 4 },
+      { y: 0.28, a: 0.10, c: '120,110,255', s: 0.00022, k: 0.0030, o: 1 }
+    ];
+    for (var b = 0; b < bands.length; b++) {
+      var B = bands[b], g = x.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, 'rgba(' + B.c + ',0)'); g.addColorStop(0.5, 'rgba(' + B.c + ',' + B.a + ')'); g.addColorStop(1, 'rgba(' + B.c + ',0)');
+      x.fillStyle = g; x.beginPath(); x.moveTo(0, h);
+      for (var i = 0; i <= w; i += 6) {
+        var y = h * B.y + Math.sin(i * B.k + t * B.s * 1000 + B.o) * h * 0.14 + Math.sin(i * B.k * 2.3 - t * B.s * 700) * h * 0.06;
+        x.lineTo(i, y);
+      }
+      x.lineTo(w, h); x.closePath(); x.fill();
+    }
+    x.globalCompositeOperation = 'source-over';
+  }
+
+  function drawMotes(t, dt) {
+    var x = M.x, w = M.w, h = M.h;
+    x.clearRect(0, 0, w, h);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i], a = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(t * 0.001 * s.f + s.p));
+      x.fillStyle = 'rgba(' + s.c + ',' + a.toFixed(2) + ')'; x.fillRect(s.x, s.y, s.s, s.s);
+    }
+    for (i = 0; i < motes.length; i++) {
+      var m = motes[i];
+      m.y -= m.v * dt; m.x += Math.sin(t * 0.0006 * m.f + m.p) * 6 * dt;
+      if (m.y < -10) { m.y = h + 10; m.x = Math.random() * w; }
+      var al = 0.25 + 0.35 * (0.5 + 0.5 * Math.sin(t * 0.002 * m.f + m.p));
+      var g = x.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.rad * 5);
+      g.addColorStop(0, 'rgba(' + m.c + ',' + al.toFixed(2) + ')'); g.addColorStop(1, 'rgba(' + m.c + ',0)');
+      x.fillStyle = g; x.fillRect(m.x - m.rad * 5, m.y - m.rad * 5, m.rad * 10, m.rad * 10);
+    }
+    if (!shoot && Math.random() < dt * 0.18) {
+      shoot = { x: Math.random() * w * 0.8, y: Math.random() * h * 0.25, vx: 520, vy: 220, life: 0 };
+    }
+    if (shoot) {
+      shoot.life += dt; shoot.x += shoot.vx * dt; shoot.y += shoot.vy * dt;
+      var fade = Math.max(0, 1 - shoot.life / 1.1), tx = shoot.x - shoot.vx * 0.12, ty = shoot.y - shoot.vy * 0.12;
+      var lg = x.createLinearGradient(tx, ty, shoot.x, shoot.y);
+      lg.addColorStop(0, 'rgba(255,255,255,0)'); lg.addColorStop(1, 'rgba(255,255,255,' + (0.9 * fade).toFixed(2) + ')');
+      x.strokeStyle = lg; x.lineWidth = 1.6; x.beginPath(); x.moveTo(tx, ty); x.lineTo(shoot.x, shoot.y); x.stroke();
+      if (shoot.life > 1.1) shoot = null;
+    }
+  }
+
+  function drawCity(t) {
+    var x = C.x, w = C.w, h = C.h;
+    x.clearRect(0, 0, w, h);
+    var fills = ['#1f0f40', '#0d061d'], edges = ['rgba(200,150,255,0.45)', 'rgba(240,139,220,0.6)'];
+    for (var i = 0; i < bld.length; i++) {
+      var b = bld[i];
+      x.fillStyle = fills[b.t]; x.fillRect(b.x, h - b.h, b.w, b.h);
+      x.fillStyle = edges[b.t]; x.fillRect(b.x, h - b.h, b.w, 1.5);
+      if (b.ant) {
+        x.fillStyle = fills[b.t]; x.fillRect(b.x + b.w / 2 - 0.6, h - b.h - 12, 1.2, 12);
+        var blink = 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(t * 0.003 + b.x));
+        x.fillStyle = 'rgba(255,70,120,' + blink.toFixed(2) + ')'; x.fillRect(b.x + b.w / 2 - 1.2, h - b.h - 14, 2.6, 2.6);
+      }
+    }
+    for (i = 0; i < wins.length; i++) {
+      var q = wins[i], v = Math.sin(t * 0.001 * q.f + q.p);
+      if (v > -0.35) { x.fillStyle = 'rgba(' + q.c + ',' + (0.35 + 0.5 * v).toFixed(2) + ')'; x.fillRect(q.x, q.y, 2, 2.5); }
+    }
+    var g = x.createLinearGradient(0, h * 0.5, 0, h);
+    g.addColorStop(0, 'rgba(240,139,220,0)'); g.addColorStop(1, 'rgba(240,139,220,0.22)');
+    x.fillStyle = g; x.fillRect(0, h * 0.5, w, h * 0.5);
+  }
+
+  init();
+  var last = performance.now(), cityT = 0, auroraT = 0;
+  function frame(now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    drawMotes(now, dt);
+    auroraT += dt; if (auroraT > 0.05) { drawAurora(now); auroraT = 0; }
+    cityT += dt; if (cityT > 0.12) { drawCity(now); cityT = 0; }
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  drawAurora(0); drawCity(0); drawMotes(0, 0);
+  if (!reduce) requestAnimationFrame(frame);
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { init(); drawAurora(performance.now()); drawCity(performance.now()); drawMotes(performance.now(), 0); }, 150); });
+})();
+</script>
+
+</body></html>
